@@ -65,6 +65,10 @@ public class MongoUtils {
         mongoTemplate.getCollection(collection).updateOne(query, updateDoc);
     }
 
+    public void updateMany(String collection,Bson wrapper, List<Document> recordList) {
+        mongoTemplate.getCollection(collection).updateMany(wrapper, recordList);
+    }
+
     private Document handelId(Bson bson) {
         if (bson != null) {
             Document document = (Document) bson;
